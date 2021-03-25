@@ -1,0 +1,398 @@
+
+@font-face {
+  font-family: 'myFirstFont';
+  src: local('myFirstFont'), url('/static/fonts/Graphik-400-Regular.otf') format('opentype');
+}
+* {
+  box-sizing: border-box;
+  margin:0;
+  padding: 0;
+  font-family: myFirstFont;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+}
+
+
+.DashbardLeftMenu a{
+  background-color: transparent;
+  color: #434348;
+  
+}
+.DashbardLeftMenu a:hover{
+  text-decoration: none;
+  color:blue;
+  font-weight: 500;
+}
+  
+  .DashbardLeftMenu{
+    display:flex;
+    margin-left: 56px;
+  }
+  
+  .DashbardDas, .DashbardCon, .DashbardCom, .DashbardMylist{
+    margin: 26px 65px 27px 0;
+    object-fit: contain;
+    font-size: 18px;
+    line-height: 1.41;
+    letter-spacing: 0.09px;
+    text-align: left;
+    color: #434348;
+    background-color: #ffffff;
+  }
+  
+  .dropdown-menu label{
+    font-size: 14px;
+    padding-top: 4px;
+  
+  }
+  .dropdown-menu input{
+    width: 16px;
+    height: 16px;
+  }
+  
+  /* ************************************Search area checbox design *************************** */
+  
+  /* The container */
+  .abc {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .abc input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .abc:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .abc input:checked ~ .checkmark {
+    background-color: #2196F3;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .abc input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .abc .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  
+  /* ************************************Search area checbox design *************************** */
+  
+  .DashbardDas{width: 90px; cursor: pointer;}
+  .DashbardCon{width: 78px; cursor: pointer;}
+  .DashbardCom{width: 95px; cursor: pointer;}
+  .DashbardMylist{width: 70px; cursor: pointer;}
+  .cf{
+    display:flex;
+    
+  }
+  .DashbardDas:hover, .DashbardCon:hover, .DashbardCom:hover, .DashbardMylist:hover{
+    color: blue;
+    font-weight: 600;
+  }
+  
+  /* , .DashbardCon:hover, .DashbardCom:hover, .DashbardMylist:hover */
+  
+  .DashbardLeftMenu{display:flex;}
+  .Notificationbell{
+  margin: 26px 28px 27px 0px;
+  object-fit: contain;
+  
+  }
+  
+  .Usersettings{
+    margin: 24px 29px 27px 0px;
+    object-fit: contain;
+  }
+  .UsersettingsDrop{
+    font-size: 14px;
+  }
+  
+  .Usersettings a{
+    margin: 0px;
+    padding: 0px;
+    object-fit: contain;
+    font-size: 16px;
+    line-height: 1.59;
+    letter-spacing: 0.08px;
+    text-align: left;
+    color: #9296b1;
+  
+  }
+  
+  .Usersettings i.fas{
+  margin: 1px 0 31px 8px;
+  object-fit: contain;
+  
+  }
+  .Usersettings img{
+    transform: rotate(90deg);
+  }
+  
+  .UsersettingsDrop{
+    padding: 0px;
+    margin: 0px;
+    width: 145px;
+    height: 83px;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0.6px 1.9px 13px 0 rgba(59, 59, 59, 0.16);
+    background-color: #ffffff;
+  }
+  
+  
+  .dropdown-menu{
+    border-radius: 10px;
+    box-shadow: 0.6px 1.9px 13px 0 rgba(59, 59, 59, 0.16);
+    background-color: #ffffff;
+  }
+  .cf {
+    box-shadow: 0.6px 1.9px 27px 0 rgba(59, 59, 59, 0.07);
+    background-color: #ffffff;
+  } 
+  
+
+  /* -------------------------------------------------- */
+  .SearchHead{
+    height:72px; 
+    margin-right:28px;
+    border: solid 1px #f6f6f6;
+    background-color: #ffffff;
+    padding-left: 50px;
+  }
+  
+  .CommonSearch{ 
+    display: flex;
+    object-fit: contain;
+    padding: 28px;
+  }
+  
+  
+  .CommonSearchInput{
+    padding-bottom: 10px;
+    width: 263px;
+    height: 30px;
+  }
+  
+  .CommonSearchInput input[type=text]{
+    font-size:16px;
+    border: None;
+    float: left;
+    color: #606367;
+    width: 263px;
+  
+  }
+
+  .CommonSearchInput input{
+    margin: 0 0 0 10px;
+    outline: none;
+  }
+
+
+  .CommonSearchFa{
+    width: 30px;
+    height: 30px;
+  }
+ 
+  .CommonSearchFa input{
+    width: 22px;
+    height: 22px;
+    margin: 0 19px 0 0;
+    object-fit: contain;
+    color:#9f9fa1;
+    filter: opacity(40%);
+    cursor: pointer;
+    padding: 0;
+    /* background-color: blue; */
+  }
+   /* -------------------------------------------------- */
+  
+  .DasLeadArea{
+    background-color: #f8f9fb;
+    height:400px; 
+    flex:8;
+    margin-top:49px;
+    padding:54px 0 0 58px;
+    border-radius: 80px 0 0 0;
+  }
+  
+  .PLeadSum{
+    object-fit: contain;
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 1.88;
+    letter-spacing: -0.34px;
+    text-align: left;
+    color: #2e2e36;
+  }
+  
+.ContactDownload{
+    width: 194px;
+    height: 179px;
+    object-fit: contain;
+    border-radius: 12px;
+    background-color: #fdf3da;
+  }
+.PhoneDownload{
+    width: 194px;
+    height: 179px;
+    object-fit: contain;
+    border-radius: 12px;
+    background-color: #d3f4fe;
+  }
+ .EmailDownload{
+    width: 194px;
+    height: 179px;
+    object-fit: contain;
+    border-radius: 12px;
+    background-color:#e6e1ff
+
+    ;
+  }
+  .ListCreated{
+    width: 194px;
+    height: 179px;
+    object-fit: contain;
+    border-radius: 12px;
+    background-color: #ffe1f1 ;
+  }
+  
+  .ContactDownload,.PhoneDownload,.EmailDownload,.ListCreated p{
+    margin:0px;
+  }
+  .ContactDownload p:nth-child(1), .PhoneDownload p:nth-child(1), .EmailDownload p:nth-child(1), .ListCreated p:nth-child(1){
+    padding:19px 0 0 22px;
+    object-fit: contain;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.16;
+    letter-spacing: normal;
+    text-align: left;
+    color: #464750;
+  }
+  
+  .ContactDownload p:nth-child(2), .PhoneDownload p:nth-child(2), .EmailDownload p:nth-child(2){
+    padding:30px 0 0 22px;
+    object-fit: contain;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1.6;
+    letter-spacing: normal;
+    text-align: left;
+    color: #464750;
+  }
+  
+  .ContactDownload p:nth-child(3), .PhoneDownload p:nth-child(3), .EmailDownload p:nth-child(3){
+    padding:0 0 0 22px;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.81;
+    letter-spacing: 0.07px;
+    text-align: left;
+    color: #434348;
+  }
+  
+  
+  .ListCreated p:nth-child(2){
+    padding:50px 0 0 22px;
+    object-fit: contain;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1.6;
+    letter-spacing: normal;
+    text-align: left;
+    color: #464750;
+  }
+  
+  .ListCreated p:nth-child(3){
+    padding:0 0 0 22px;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.81;
+    letter-spacing: 0.07px;
+    text-align: left;
+    color: #434348;
+  }
+  
+  .DasLeadAreaList div{
+    margin-right: 28px;
+  }
+  
+  .DasImageWel{
+    padding: 180px 0 0 80px
+  }
+  
+  .DasImageWel p{
+    object-fit: contain;
+    font-size: 38px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.16;
+    letter-spacing: -0.38px;
+    text-align: left;
+    color: #e60808;
+  }
+  
+  
+  ::placeholder {
+    line-height: 1.59;
+    letter-spacing: 0.08px;
+    text-align: left;
+    color: #cbcdcd;
+  }
+  
+.UserProfileSide{
+  height:70px;
+  margin-left: auto;
+  width:200px;
+}

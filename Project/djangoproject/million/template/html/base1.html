@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
+
+    <script src=dashboard.js type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/dash_lead.css' %}">
+    <script src="{% static 'jquery/dashboard.js' %}" type="text/javascript"></script>
+    <title>Pipegenious</title>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="navbar navbar-expand-lg navbar-expand-md  navbar-fixed-top">
+      <a class="navbar-brand navbarbrand" href="#" >
+        <img src="{% static 'images/Pipegenius.png' %}" height="30" class="d-inline-block align-top" alt="">Pipegenius
+      </a>
+      <button class="navbar-toggler first-button" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><div class="animated-icon1"><span></span><span></span><span></span></div>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <form method="post" action="searchany" class="form-inline ml-auto">{% csrf_token %}
+          <input class="NavFormInput" type="=text" name="fn" placeholder="Search anythings here">
+          <input class="NavFormSearch" type="submit" value="Search">
+        </form>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-users"></i><span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-user"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-sign-out-alt"></i></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="main" style="height:650px;  ">
+      <div class="sidebar" style="height:650px;  ">
+        
+        
+        <div class="d-flex bd-highlight" style="background:rgba(5, 5, 5, 0.616);">
+          <div class="p-2 flex-fill bd-highlight" style="width:60px;height:50px; ">
+              <a class="" role="button" href="{% url 'lead' %}" >
+                  <button type="button" class="lead-btn btn text-light btn-block">Lead</button>
+              </a>
+          </div>
+          <div class="p-2 flex-fill bd-highlight" style=" width:60px; height:50px; ">
+              <a class="" role="button" href="{% url 'account' %}">
+                  <button type="button"  class="accounts-btn btn text-light btn-block">Accounts</button>
+              </a>
+          </div>
+        </div>
+        <div class="container" style="height:600px; background-color:#1fae66;">
+          <div class="overflow-auto" style="height:600px;  background-color:#1fae66">
+              <form action="Client_top" method="post">{% csrf_token %}
+                  <div class="floating-label" style=" margin-top:20px; background-color:rgb(235, 238, 230);">      
+                      <input class="floating-input" name="fn" type="text" placeholder=" ">
+                      <span class="highlight"></span>
+                      <label class="floating-label-all">Contact Name <i class="fas fa-plus"></i></label>
+                  </div>
+                  <div class="floating-label" style=" background-color:rgb(235, 238, 230);">      
+                      <input class="floating-input" name="company" type="text" placeholder=" ">
+                      <span class="highlight"></span>
+                      <label class="floating-label-all">Company Name <i class="fas fa-plus"></i></label>
+                  </div>
+
+                  <div class="floating-label dropdown" style=" background-color:rgb(235, 238, 230);">      
+                      <input class="floating-input dropdown-toggle" id="dropdownsl" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" type="text" placeholder=" ">
+                      <span class="highlight"></span>
+                      <label class="floating-label-all">Title <i class="fas fa-plus"></i></label>
+                      <div class="overflow-auto dropdown-menu" aria-labelledby="dropdownsl" style=" width:90%; height:200px; background-color:rgb(160, 240, 32);">
+                      <div style=" margin-left:5px;">
+                      <div class="checkbox select-all">
+                          <input id="TitleAllCheck" type="checkbox" />
+                          <label for="all">All</label>
+                      </div>
+                      <div class="form-group form-check function-check TitleCheck">
+                          <input type="checkbox" class="form-check-input avi" id="exampleCheck1" name="title[]" value="CEO" />
+                          <label class="form-check-label" for="exampleCheck1">CEO</label><br>
+                          <input type="checkbox" class="form-check-input" id="exampleCheck2" name="title[]" value="CFO" />
+                          <label class="form-check-label" for="exampleCheck1">CFO</label><br>
+                          <input type="checkbox" class="form-check-input" id="exampleCheck3" name="title[]" value="Sales" />
+                          <label class="form-check-label" for="exampleCheck1">CTO</label><br>
+                      </div>
+                      </div>
+                  </div>
+                  
+                  </div>
+                  <div class="floating-label dropdown" style=" background-color:rgb(235, 238, 230);">      
+                  <input class="floating-input dropdown-toggle" id="dropdownsl" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" type="text" placeholder=" ">
+                  <span class="highlight"></span>
+                  <label class="floating-label-all">Function <i class="fas fa-plus"></i></label>
+                  <div class="overflow-auto dropdown-menu" aria-labelledby="dropdownsl" style=" width:90%; height:200px; background-color:rgb(160, 240, 32);">
+                      <div style=" margin-left:5px;">
+                      <div class="checkbox select-all">
+                          <input id="FunctionAllCheck" type="checkbox" />
+                          <label for="all">All</label>
+                      </div>
+                      <div class="form-group form-check function-check FunctionCheck">
+                          <input type="checkbox" class="form-check-input avi" id="exampleCheck1" name="function[]" value="Operations" />
+                          <label class="form-check-label" for="exampleCheck1">Operations</label><br>
+                          <input type="checkbox" class="form-check-input" id="exampleCheck2" name="function[]" value="BusinessDevelopment" />
+                          <label class="form-check-label" for="exampleCheck1">Business Development</label><br>
+                          <input type="checkbox" class="form-check-input" id="exampleCheck3" name="function[]" value="Sales" />
+                          <label class="form-check-label" for="exampleCheck1">Sales</label><br>
+                          <input type="checkbox" class="form-check-input" id="exampleCheck4" name="function[]" value="Education" />
+                          <label class="form-check-label" for="exampleCheck1">Education</label><br>
+                          <input type="checkbox" class="form-check-input" id="exampleCheck5" name="function[]" value="InformationTechnology" />
+                          <label class="form-check-label" for="exampleCheck1">Information Technology</label><br>
+                          <input type="checkbox" class="form-check-input" id="exampleCheck6" name="function[]" value="CommunitySocialServices" />
+                          <label class="form-check-label" for="exampleCheck1">Community and Social Services</label><br>
+                          <input type="checkbox" class="form-check-input" id="exampleCheck7" name="function[]" value="Finance" />
+                          <label class="form-check-label" for="exampleCheck1">Finance</label><br>
+                          <input type="checkbox" class="form-check-input" id="exampleCheck8" name="function[]" value="ArtsDesign" />
+                          <label class="form-check-label" for="exampleCheck1">Arts and Design</label><br>
+                          <input type="checkbox" class="form-check-input" id="exampleCheck9" name="function[]" value="MediaCommunication" />
+                          <label class="form-check-label" for="exampleCheck1">Media and Communication</label><br>
+                          <input type="checkbox" class="form-check-input" id="exampleCheck10" name="function[]" value="Marketing" />
+                          <label class="form-check-label" for="exampleCheck1">Human Resources</label><br>
+                          <input type="checkbox" class="form-check-input" id="exampleCheck11" name="function[]" value="Manager-Level" />
+                          <label class="form-check-label" for="exampleCheck1">Marketing</label><br>
+                          <input type="checkbox" class="form-check-input" id="exampleCheck1" name="function[]" value="Research" />
+                          <label class="form-check-label" for="exampleCheck1">Research</label><br>
+                          <input type="checkbox" class="form-check-input" id="exampleCheck1" name="function[]" value="Entrepreneurship" />
+                          <label class="form-check-label" for="exampleCheck1">Entrepreneurship</label><br>
+                          <input type="checkbox" class="form-check-input" id="exampleCheck1" name="function[]" value="Product Management" />
+                          <label class="form-check-label" for="exampleCheck1">Product Management</label><br>
+                      </div>
+                      </div>
+                  </div>
+                  </div>
+
+                  <div class="floating-label dropdown" style=" background-color:rgb(235, 238, 230);">      
+                  <input class="floating-input dropdown-toggle" id="dropdownsl" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" type="text" placeholder=" ">
+                  <span class="highlight"></span>
+                  <label class="floating-label-all">Seniority Level <i class="fas fa-plus"></i></label>
+                  <div class="overflow-auto dropdown-menu" aria-labelledby="dropdownsl" style=" width:90%; height:200px; background-color:rgb(160, 240, 32);">
+                      <div style=" margin-left:5px;">
+                      <div class="checkbox select-all">
+                          <input id="SeniorityAllCheck" type="checkbox" />
+                          <label for="all">All</label>
+                      </div>
+                      <div class="form-group form-check sl-check SeniorityCheck">
+                          <input type="checkbox" class="form-check-input avi" name="CL[]" value="VP-Level" />
+                          <label class="form-check-label" for="exampleCheck1">VP</label><br>
+                          <input type="checkbox" class="form-check-input" name="CL[]" value="Director-Level" />
+                          <label class="form-check-label" for="exampleCheck1">Director</label><br>
+                          <input type="checkbox" class="form-check-input" name="CL[]" value="C-Level" />
+                          <label class="form-check-label" for="exampleCheck1">C-Level</label><br>
+                          <input type="checkbox" class="form-check-input" name="CL[]" value="Manager-Level" />
+                          <label class="form-check-label" for="exampleCheck1">Manager</label><br>
+                          <input type="checkbox" class="form-check-input" name="CL[]" value="Staff" />
+                          <label class="form-check-label" for="exampleCheck1">Staff</label><br>
+                          <input type="checkbox" class="form-check-input" name="CL[]" value="Owner" />
+                          <label class="form-check-label" for="exampleCheck1">Owner</label><br>
+                          <input type="checkbox" class="form-check-input" name="CL[]" value="Partner"/>
+                          <label class="form-check-label" for="exampleCheck1">Partner</label><br>
+                          <input type="checkbox" class="form-check-input" name="CL[]" value="CXO" />
+                          <label class="form-check-label" for="exampleCheck1">CXO</label><br>
+                          <input type="checkbox" class="form-check-input" name="CL[]" value="Entry" />
+                          <label class="form-check-label" for="exampleCheck1">Entry</label><br>
+                      </div>
+                      </div>
+                  </div>
+                  </div>
+                  
+                  <div class="floating-label dropdown" style=" background-color:rgb(235, 238, 230);">      
+                  <input class="floating-input dropdown-toggle" id="dropdownsl" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" type="text" placeholder=" ">
+                  <span class="highlight"></span>
+                  <label class="floating-label-all">Company size <i class="fas fa-plus"></i></label>
+                  <div class="overflow-auto dropdown-menu" aria-labelledby="dropdownsl" style=" width:90%; height:200px; background-color:rgb(160, 240, 32);">
+                      <div style=" margin-left:5px;">
+                      <div class="checkbox select-all">
+                          <input id="CompanysizeAllCheck" type="checkbox" />
+                          <label for="all">All</label>
+                      </div>
+                      <div class="form-group form-check form-check-cs CompanysizeCheck">
+                          <input type="checkbox" class="form-check-input avi" name="CS[]" value="1-10" />
+                          <label class="form-check-label" for="exampleCheck1">1-10</label><br>
+                          <input type="checkbox" class="form-check-input" name="CS[]" value="10-50" />
+                          <label class="form-check-label" for="exampleCheck1">10-50</label><br>
+                          <input type="checkbox" class="form-check-input" name="CS[]" value="50-200" />
+                          <label class="form-check-label" for="exampleCheck1">50-200</label><br>
+                          <input type="checkbox" class="form-check-input" name="CS[]" value="200-500" />
+                          <label class="form-check-label" for="exampleCheck1">200-500</label><br>
+                          <input type="checkbox" class="form-check-input" name="CS[]" value="500-1k" />
+                          <label class="form-check-label" for="exampleCheck1">500-1k</label><br>
+                          <input type="checkbox" class="form-check-input" name="CS[]" value="1k-5k" />
+                          <label class="form-check-label" for="exampleCheck1">1k-5k</label><br>
+                          <input type="checkbox" class="form-check-input" name="CS[]" value="5k-10k"/>
+                          <label class="form-check-label" for="exampleCheck1">5k-10k</label><br>
+                          <input type="checkbox" class="form-check-input"name="CS[]" value="10K - 50K" />
+                          <label class="form-check-label" for="exampleCheck1">10k-50k</label><br>
+                          <input type="checkbox" class="form-check-input" name="CS[]" value="50k+" />
+                          <label class="form-check-label" for="exampleCheck1">50k+</label><br>
+                      </div>
+                      </div>
+                  </div>
+                  </div>
+                  <div class="floating-label" style=" background-color:rgb(235, 238, 230);">      
+                  <input class="floating-input" type="text"  name="industry" placeholder=" ">
+                  <span class="highlight"></span>
+                  <label class="floating-label-all">Industry <i class="fas fa-plus"></i></label>
+                  </div>
+                  <div class="geography">
+                  <p>Geography</p>
+                  <div class="floating-label" style=" background-color:rgb(235, 238, 230);">      
+                      <input class="floating-input" type="text" name="geography" placeholder=" ">
+                      <span class="highlight"></span>
+                      <label class="floating-label-all">Country/States <i class="fas fa-plus"></i></label>
+                  </div>
+                  </div>
+                  <button type="submit" class="btn btn-secondary">Submit</button>
+              </form>
+          </div>
+        </div>
+      </div>
+      <div class="search-bar" style="height:650px;  background-color:rgb(224, 19, 190);">
+        
+        <div class="search-bar" style="height:650px;  background-color:rgb(224, 19, 190);">
+          <div class="row-fluid dashboard-arrow-area" >
+            <div class="d-flex flex-row bd-highlight dashboard-sizing" >
+              <div>
+              </div>
+              <div class="p-2 bd-highlight">
+                <i class="fas fa-arrows-alt-h fa-fw" id="HorizontalArrow"></i>
+              </div>
+              <div class="p-2 bd-highlight">
+                <i class="fas fa-arrows-alt-v fa-fw" id="VerticalArrow"></i>
+              </div>
+              <div class="p-2 bd-highlight ">
+                <i class="fas fa-arrows-alt fa-fw" id="ExpandArrow" ></i>
+              </div>
+            </div>
+          </div>
+          <div class="row-fluid dashboard-sorting" style="height:60px;  background-color:rgb(218, 203, 215);">
+            <div class="d-flex flex-row-reverse bd-highlight" >
+              <div class="dropdown dropleft">
+                <i class="fa fa-filter" data-toggle="dropdown"></i>
+                <div class="dropdown-menu" id="grpChkBox">
+                  <p><input type="checkbox" name="name" /> Name</p>
+                  <p><input type="checkbox" name="comp" /> Company</p>
+                  <p><input type="checkbox" name="emailphone" /> Email | Phone Number</p>
+                  <p><input type="checkbox" name="compnyadd" /> Company ddress</p>
+                  <p><input type="checkbox" name="deliv" /> Delverabilty</p>
+                </div>
+              </div>
+              <div class="p-2 bd-highlight">
+                
+              </div>
+              <div class="p-2 bd-highlight">
+              </div>
+              <div class="p-2 bd-highlight ">
+              </div>
+            </div>
+          </div>
+          <form action="Clinet_save" method="post" >{% csrf_token %}
+            <div class="row-fluid dashboard-sorting" style="height:40px;  background-color:rgba(241, 241, 241, 0.993);">
+              <div class="d-flex flex-row bd-highlight" >
+                <div class="p-2 bd-highlight checkbox-all" style="height:40px;  background-color:#1fae66">
+                  <div class="form-check check-input-cl">
+                    <input type="checkbox" class="none check-input" id="checkbox-all-ser">
+                    <span class="dropdown">
+                      <i class="fas fa-angle-down "  data-toggle="dropdown"></i>
+                      <!-- <div class="dropdown-menu" >
+                        <input type="checkbox" class="dropdown-item" id="">
+                        <span>select all</span>
+                        <a class="dropdown-item" href="#">selct upto </a>
+                      </div> -->
+                    </span> 
+                  </div>
+                </div> 
+                <div class="p-2 bd-highlight get-contacts ml-3">
+                  <button class="vers" type="submit">Get Contacts</button>
+                </div>
+                <div class="p-2 bd-highlight ">
+                  <button class="vers">remove</button>
+                </div>
+              </div>
+              <div class="main-search-result">
+              </div>
+            </div>
+            <div class="row-fluid dashboard-sorting">
+              <div class="overflow-auto" style="width:100%; background-color:rgb(255, 141, 47); height:530px; ">
+                {% block content %}
+                {% endblock content %}
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+

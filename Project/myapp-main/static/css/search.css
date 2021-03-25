@@ -1,0 +1,13 @@
+.selector-for-some-widget {
+    box-sizing: content-box;
+  }
+  .nav{
+    height:40px;
+  }
+
+
+  @media screen and (min-width: 1024px) {
+    myNewDivHeight{
+        height:800px;
+    }
+}

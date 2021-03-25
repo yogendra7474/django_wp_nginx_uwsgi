@@ -1,0 +1,90 @@
+{% extends 'html/base.html' %}
+{% load static %}
+{% load search_extra %}
+{% block content %}
+<div class="search-bar" style="height:650px;  background-color:rgb(224, 19, 190);">
+    <div class="row-fluid dashboard-arrow-area" >
+      <div class="d-flex flex-row bd-highlight dashboard-sizing" >
+        <div>
+        </div>
+        <div class="p-2 bd-highlight">
+          <i class="fas fa-arrows-alt-h fa-fw" id="HorizontalArrow"></i>
+        </div>
+        <div class="p-2 bd-highlight">
+          <i class="fas fa-arrows-alt-v fa-fw" id="VerticalArrow"></i>
+        </div>
+        <div class="p-2 bd-highlight ">
+          <i class="fas fa-arrows-alt fa-fw" id="ExpandArrow" ></i>
+        </div>
+      </div>
+    </div>
+    <div class="row-fluid dashboard-sorting" style="height:60px;  background-color:rgb(218, 203, 215);">
+      <div class="d-flex flex-row bd-highlight" >
+        <div>
+        </div>
+        <div class="p-2 bd-highlight">
+        </div>
+        <div class="p-2 bd-highlight">
+        </div>
+        <div class="p-2 bd-highlight ">
+        </div>
+      </div>
+    </div>
+    <div class="row-fluid dashboard-sorting" style="height:40px;  background-color:rgba(241, 241, 241, 0.993);">
+      <div class="d-flex flex-row bd-highlight" >
+        <div class="p-2 bd-highlight checkbox-all" style="height:40px;  background-color:#1fae66">
+          <div class="form-check check-input-cl">
+            <input type="checkbox" class="none check-input" id="checkbox-all-ser">
+            <span class="dropdown">
+              <i class="fas fa-angle-down "  data-toggle="dropdown"></i>
+              <!-- <div class="dropdown-menu" >
+                <input type="checkbox" class="dropdown-item" id="">
+                <span>select all</span>
+                <a class="dropdown-item" href="#">selct upto </a>
+              </div> -->
+            </span> 
+          </div>
+        </div> 
+        <div class="p-2 bd-highlight get-contacts ml-3">
+          <p>Get Contacts<p></p>
+        </div>
+        <div class="p-2 bd-highlight ">
+      </div>
+      <div class="main-search-result">
+      </div>
+    </div>
+
+
+    <div class="row-fluid dashboard-sorting">
+      <div class="overflow-auto" style="width:100%; background-color:rgb(255, 141, 47); height:530px; ">
+        <form action="Clinet_save" method="post">{% csrf_token %}
+          <div class="">
+            <div class="search-result-title">
+              <div class="srcheck">All</div>
+              <div class="srname">Name</div>
+              <div class="srcompany">Company</div>
+              <div class="srep">Email | Phone Number</div>
+              <div class="srcd">Company ddress</div>
+              <div class="srdel">Delverabilty</div>
+            </div>
+
+            {% for user in filters %}
+            <div class="SearchResult">
+              <div class="srcheck1"><input type="checkbox" name="checks[]"  id="clinet[]" value="{{user.id}}"></div>
+              <div class="srname1">{{ user.First_Name}} {{ user.Last_Name}}</div>
+              <div class="srcompany1">{{ user.Company}}, {{ user.City}},
+                {{ user.State}}</div>
+              <div class="srep1">{{ user.Email}},
+                {{ user.Company_Number}}
+              </div>
+              <div class="srcd1">{{ user.Address}}</div>
+              <div class="srdel1">{{ user.Email_Confidence}}</div>
+            </div>
+            {% endfor %}
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,954 @@
+
+@font-face {
+    font-family: 'myFirstFont';
+    src: local('myFirstFont'), url('/static/fonts/Graphik-400-Regular.otf') format('opentype');
+  }
+  * {
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+    font-family: myFirstFont;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+  }
+
+  ::placeholder {
+    line-height: 1.59;
+    letter-spacing: 0.08px;
+    text-align: left;
+    color: #cbcdcd;
+  }
+  
+  
+  .DashbardLeftMenu a{
+    background-color: transparent;
+    color: #434348;
+    
+  }
+  .DashbardLeftMenu a:hover{
+    text-decoration: none;
+    color:blue;
+    font-weight: 500;
+  }
+  
+  
+  .row{
+    display:flex;
+  }
+  
+  .sidebard, .search-result{
+    flex:1;
+  }
+  
+  
+  
+  
+  .main{
+    display: flex;
+  }
+  .sidebar{
+    flex:2.5;
+  }
+  .search-bar{
+    flex:9.5;
+  }
+  .check-input{
+    height: 20px;
+    width: 20px;
+  }
+  .check-input-label{
+    display: inline-block;
+    font-size: 18px;
+    text-align: center;
+    vertical-align: bottom;
+  
+  }
+  
+   .check-input-cl i.fas {
+    display: inline-block;
+    font-size: 20px;
+    /* padding:5px;
+    line-height: -3px;
+    text-align: center; 
+    vertical-align: bottom; */
+    color: black;
+  }  
+  
+  
+  /****  ********************************************floating-Lable style start ****/
+  
+  .floating-form {
+    width:320px;
+  }
+  
+  /****  floating-Lable style start ****/
+  .floating-label { 
+    position:relative; 
+    margin-bottom:20px; 
+  }
+  .floating-input{
+    font-size:16px ;
+    padding:4px 4px;
+    display:block;
+    width:100%;
+    height:100%;
+    border:none;
+    border-bottom:1px solid #e3e4eb;
+  }
+  
+  .floating-input:focus{
+    outline:none;
+    border-bottom:2px solid #606367;
+    background-color: white;
+  }
+  
+  .floating-label-all{
+    color:#606367; 
+    font-size:16px bold;
+    position:absolute;
+    pointer-events:none;
+    left:5px;
+    top:5px;
+    transition:0.2s ease all; 
+    -moz-transition:0.2s ease all; 
+    -webkit-transition:0.2s ease all; 
+  }
+  
+  .floating-input:focus ~ .floating-label-all, .floating-input:not(:placeholder-shown) ~ .floating-label-all {
+    top:-10px;
+    font-size:14px;
+    color:#606367;
+  }
+  
+  
+  /* highlighter */
+  .highlight {
+    position:absolute;
+    height:50%; 
+    width:100%; 
+    top:15%; 
+    left:0;
+    pointer-events:none;
+    opacity:0.5;
+  }
+  
+  /* active state */
+  .floating-input:focus ~ .highlight{
+    -webkit-animation:inputHighlighter 0.3s ease;
+    -moz-animation:inputHighlighter 0.3s ease;
+    animation:inputHighlighter 0.3s ease;
+  }
+  
+  .floating-label i.fas {
+    font-size: 14px;
+    position: absolute;
+    left:250px;
+    top: 4px;
+    color:#9f9fa1;
+  } 
+  
+  
+  .DashbardLeftMenu{
+    display:flex;
+    margin-left: 56px;
+  
+  }
+  
+  .DashbardDas, .DashbardCon, .DashbardCom, .DashbardMylist{
+    margin: 26px 65px 27px 0;
+    object-fit: contain;
+    font-size: 18px;
+    line-height: 1.41;
+    letter-spacing: 0.09px;
+    text-align: left;
+    color: #434348;
+    background-color: #ffffff;
+  
+  
+  }
+  .dropdown-menu label{
+    font-size: 14px;
+    padding-top: 4px;
+  
+  }
+  .dropdown-menu input{
+    width: 16px;
+    height: 16px;
+  }
+  
+  /* ************************************Search area checbox design *************************** */
+  
+  /* The container */
+  .abc {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .abc input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .DashbardDas{width: 90px; cursor: pointer;}
+  .DashbardCon{width: 78px; cursor: pointer;}
+  .DashbardCom{width: 95px; cursor: pointer;}
+  .DashbardMylist{width: 70px; cursor: pointer;}
+  .cf{
+    display:flex;
+    
+  }
+  .DashbardDas:hover, .DashbardCon:hover, .DashbardCom:hover, .DashbardMylist:hover{
+    color: blue;
+    font-weight: 500;
+  }
+  
+  .DashbardLeftMenu{display:flex;}
+  .Notificationbell{
+    margin: 26px 28px 27px 0px;
+    object-fit: contain;
+  
+  }
+  
+  .Usersettings{
+    margin: 24px 29px 27px 0px;
+    object-fit: contain;
+  }
+  .UsersettingsDrop{
+    font-size: 14px;
+  }
+  
+  .Usersettings a{
+    margin: 0px;
+    padding: 0px;
+    object-fit: contain;
+    font-size: 16px;
+    line-height: 1.59;
+    letter-spacing: 0.08px;
+    text-align: left;
+    color: #9296b1;
+  
+  }
+  
+  .Usersettings i.fas{
+  margin: 1px 0 31px 8px;
+  object-fit: contain;
+  
+  }
+  .Usersettings img{
+    transform: rotate(90deg);
+  }
+  
+  .UsersettingsDrop{
+    padding: 0px;
+    margin: 0px;
+    width: 145px;
+    height: 83px;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0.6px 1.9px 13px 0 rgba(59, 59, 59, 0.16);
+    background-color: #ffffff;
+  }
+  
+  .SidebarFilterby{
+    border: solid 1px #f6f6f6;
+  }
+  
+  .SidebarFilterbyName{
+    margin: 29px 0 0  21px;
+    object-fit: contain;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.59;
+    letter-spacing: 0.08px;
+    text-align: left;
+    color: #4640de;
+  }
+  
+  .container{
+    height:600px; 
+    width: 310px; 
+    
+  
+  }
+  
+  .dropdown-menu{
+    border-radius: 10px;
+    box-shadow: 0.6px 1.9px 13px 0 rgba(59, 59, 59, 0.16);
+    background-color: #ffffff;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+  
+  .CommonSearch{
+    padding:26px 0 21px 31px;
+    display: flex;
+    object-fit: contain;
+  }
+  .CommonSearchInput{
+    padding-top: 5px;
+  }
+  .CommonSearch input{
+    outline: none;
+    width: 200px;
+    height: 16px;
+    object-fit: contain;
+    font-size: 16px;
+    line-height: 1.59;
+    letter-spacing: 0.08px;
+    text-align: left;
+    color: #cbcdcd;
+    border: 0px;
+  
+  }
+  
+  .CommonSearch input[type=text]{
+    font-size:16px;
+    border: None;
+    float: left;
+    color: #606367;
+  
+  }
+  .cf {
+    box-shadow: 0.6px 1.9px 27px 0 rgba(59, 59, 59, 0.07);
+    background-color: #ffffff;
+  }
+  
+  
+  .CommonSearchFa img{
+    width: 22px;
+    height: 22px;
+    margin: 0 19px 0 0;
+    object-fit: contain;
+    color:#9f9fa1;
+    filter: opacity(40%);
+  }
+  
+  
+  .DashboardSelectAll{
+    display: flex;
+    width: 150px;
+    height: 36px;
+    border-radius: 5px;
+    border: solid 1px #bfdeff;
+    position: relative;
+   
+    
+  }
+  
+  .DashboardSelectAll input{
+    width: 20px;
+    height: 20px;
+    margin: 8px 0 0 10px;
+    object-fit: contain;
+    opacity: 0.35;
+    border-radius: 5px;
+    border: solid 1px #b2b2b2;
+  }
+  .DashboardSelectAll a{
+    font-size: 14px;
+    line-height: 1.81;
+    letter-spacing: 0.07px;
+    text-align: left;
+    
+  }
+  
+  .dashboard-sorting1{
+    padding: 18px 6px 6px 10px;
+    display: flex;
+  }
+  
+  .DashboardSelectAllSelect{
+    width: 120px;
+    height: 16px;
+    margin: 8px 0 0 13px;
+    color: #2080ee;
+    cursor: pointer;
+  }
+  
+  .DashboardSelectMenu{
+    display: none;
+    padding-left: 10px;
+    padding-top: 15px;
+    position: absolute;
+    height:80px;
+    width: 216px;
+    margin-top: 45px;
+    border-radius: 10px;
+    box-shadow: 0.6px 1.9px 13px 0 rgba(59, 59, 59, 0.16);
+    background-color: #ffffff;
+  }
+  
+  .DashboardSelectMenuDrop, .ShowColumnMenuDrop, .ShowRowsMenuDrop{
+    display: flex;
+    object-fit: contain;
+    font-size: 14px;
+    line-height: 1.81;
+    letter-spacing: 0.07px;
+    text-align: left;
+    color: #393c41;
+    background-color: white;
+  }
+  .DashboardSelCheck{
+    padding: 2px 7px 0 0;
+  }
+  .DashUnSelMenDrop{
+    color: #2080ee;
+    cursor: pointer;
+  }
+  
+  .DashboardSelectMenu input, .ShowColumnMenu input, .ShowRowsMenu input{
+    width: 18px;
+    height: 18px;
+  }
+  
+  .DashboardSelectAllSelect  img{
+    height: 12px;
+    width: 40px;
+    transform:  rotate(90deg);
+    margin-bottom: 2px;
+    cursor: pointer;
+  }
+  
+  
+  .SaveContact{
+    position: relative;
+    width: 150px;
+    height: 36px;
+    margin-left: 17px;
+    padding: 8px 0 14px 14px;
+    font-size: 14px;
+    line-height: 1.81;
+    letter-spacing: 0.07px;
+    text-align: left;
+    object-fit: contain;
+    border-radius: 5px;
+    border: solid 1px #bfdeff;
+    background-color: #ffffff;
+    color: #2080ee;
+    cursor: pointer;
+    
+  }
+  .SaveContactMenu{
+    display: none;
+    margin-left: 165px;
+    padding-left: 16px;
+    padding-top: 15px;
+    position: absolute;
+    height:100px;
+    width: 223px;
+    margin-top: 45px;
+    border-radius: 10px;
+    box-shadow: 0.6px 1.9px 13px 0 rgba(59, 59, 59, 0.16);
+    background-color: #ffffff;
+  }
+  .SaveContactMenu div{
+    color:#393c41;
+    cursor: pointer;
+  }
+  .SaveContactMenu div:hover, .SaveContactMenu button:hover{
+   color: blue;
+  }
+  
+  
+   .SaveContact img, .ShowRows img{
+    height: 14px;
+    width: 40px;
+    transform:  rotate(90deg);
+    margin-bottom: 2px;
+    
+  }
+  
+  .ShowRows img{
+    position: relative;
+  }
+  .ShowRows{
+    cursor: pointer;
+  }
+  
+  .ShowRowsMenu{
+    display: none;
+    margin:40px 0 0 780px;
+    position: absolute;
+    width: 40px;
+    background-color: white;
+    height: 80px;
+  }
+  
+  .CountSearch{
+    width: 160px;
+    height: 36px;
+    margin-left: 17px;
+    padding: 8px 0 14px 14px;
+    font-size: 14px;
+    line-height: 1.81;
+    letter-spacing: 0.07px;
+    text-align: left;
+    object-fit: contain;
+    border-radius: 0;
+    border: none;
+    background-color: #ffffff;
+    color: #2080ee;
+  }
+  
+  
+  .ShowColumn{
+    cursor: pointer;
+    position: relative;
+    width: 150px;
+    height: 36px;
+    margin-left: 17px;
+    padding: 8px 0 14px 14px;
+    font-size: 14px;
+    line-height: 1.81;
+    letter-spacing: 0.07px;
+    text-align: left;
+    object-fit: contain;
+    border-radius: 5px;
+    border: solid 1px #bfdeff;
+    background-color: #ffffff;
+    color: #2080ee;
+  }
+  
+  .ShowColumn img{
+    height: 12px;
+    width: 40px;
+    transform:  rotate(90deg);
+    margin-bottom: 0px;
+  } 
+  
+  .ShowColumnMenu{
+    margin-left: 510px;
+    display: none;
+    padding-left: 10px;
+    padding-top: 15px;
+    position: absolute;
+    height:225px;
+    width: 216px;
+    margin-top: 45px;
+    border-radius: 10px;
+    box-shadow: 0.6px 1.9px 13px 0 rgba(59, 59, 59, 0.16);
+    background-color: #ffffff;
+  }
+  
+  
+  .ShowRows{
+    width: 150px;
+    height: 36px;
+    margin-left: 17px;
+    padding: 8px 0 14px 14px;
+    font-size: 14px;
+    line-height: 1.81;
+    letter-spacing: 0.07px;
+    text-align: left;
+    object-fit: contain;
+    border-radius: 5px;
+    border: solid 1px #bfdeff;
+    background-color: #ffffff;
+    columns: #606367;
+  }
+  
+  #rows{
+    height: 20px;
+    border:none;
+    outline-width: 0;
+    color: #606367;
+  }
+  
+  .Pagination{
+    width: 170px;
+    height: 36px;
+    margin-left: 17px;
+    padding: 8px 0 14px 14px;
+    font-size: 14px;
+    line-height: 1.81;
+    letter-spacing: 0.07px;
+    text-align: left;
+    border: 0;
+    background-color: #ffffff;
+    color:#606367;
+  }
+  
+  .Pagination img{
+    height: 12px;
+    width: 40px;
+    transform:  rotate(90deg);
+    margin-bottom: 0px;
+  }
+  
+  
+  .SearchResult{
+    display: flex;
+  }
+  .SearchResultArea{
+    display: flex;
+    word-wrap: break-word;
+  }
+  .SearchResultArea div{
+    word-wrap: break-word;
+    object-fit: contain;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.36;
+    letter-spacing: 0.07px;
+    text-align: left;
+    color: #45464c;
+    white-space: nowrap;
+    /* overflow: hidden; */
+    text-overflow: ellipsis;
+  }
+  
+  .DashboardSelectMenuDrop button{
+    outline: 0;
+    border: 0;
+    background-color: white;
+  
+  }
+  
+  .SRB{
+    flex: 0.5;
+  }
+  
+  .SRN{
+    flex:2;
+  }
+  
+  .SRC{
+    flex: 2;
+  }
+  .SRL{
+    flex: 2;
+  }
+  
+  .SRE{
+    flex: 3;
+  }
+  .SRCO{
+    flex: 2;
+  }
+  
+  .SRX{
+    flex: 2;
+  }
+  
+  .SearchResultAreaBox input{
+    width: 20px;
+    height: 20px;
+    margin-left: 17px;
+  
+  }
+  
+  .SearchTable{
+    width: 100%;
+    margin-left: 10px;
+    text-align: left;
+    font-size: 14px;
+    font-family: my;
+  }
+  .SearchTable th{
+    background-color: #edf4ff;
+    margin-right: 10px;
+    font-size: 14px;
+    line-height: 1.81;
+    letter-spacing: 0.07px;
+    text-align: left;
+    color: #393c41;
+  }
+  
+  .SearchTable td{
+    height: 75px;
+    background-color:#ffffff;
+    font-size: 14px;
+    line-height: 1.36;
+    letter-spacing: 0.07px;
+    text-align: left;
+    color: #45464c;
+    
+  }
+  
+  .TableHeading{
+    height: 46px;
+    margin-left: 10px;
+  }
+  
+  .CBox{
+    width: 4%;
+    padding-left:10px;
+  }
+  .CBox input{
+    width: 18px;
+    height: 18px;
+    opacity: 0.35;
+    border-radius: 5px;
+    border: solid 1px #b2b2b2;
+  }
+  .TableName{
+    width: 13%;
+  
+  }
+  .TableCompany{
+    width: 13%;
+  }
+  .TableAdd{
+    width: 13%;
+  }
+  
+  .TableConfidence{
+    width: 15%;
+    text-align: center;
+  }
+  
+  .TableEmail{
+    width: 25%;
+  
+  }
+  
+  .SearchTable i.fas, .SearchTable i.far{
+    padding-right: 10px;
+  }
+  .TableValue{
+    height:80px;
+  }
+  
+  
+  .TableView{
+    width: 17%;
+  }
+  .TableView div{
+    width: 120px;
+    height: 36px;
+    padding: 10px;
+    object-fit: contain;
+    border-radius: 3px;
+    border: solid 1px #4640de;
+  }
+  
+  .emaildiv{
+    height:1200px;
+    width: 100px;
+  }
+  
+
+
+
+
+  /* -------------------------------------------------- */
+  .SearchHead{
+    height:72px; 
+    margin-right:28px;
+    border: solid 1px #f6f6f6;
+    background-color: #ffffff;
+    padding-left: 50px;
+  }
+  
+  .CommonSearch{ 
+    display: flex;
+    object-fit: contain;
+    padding: 28px;
+  }
+  
+
+  .CommonSearchInput input[type=text]{
+    font-size:16px;
+    border: None;
+    float: left;
+    color: #606367;
+    width: 263px;
+  
+  }
+
+  .CommonSearchInput input{
+    margin: 0 0 0 10px;
+    outline: none;
+  }
+
+
+  .CommonSearchFa{
+    width: 30px;
+    height: 30px;
+  }
+ 
+  .CommonSearchFa input{
+    width: 22px;
+    height: 22px;
+    margin: 0 19px 0 0;
+    object-fit: contain;
+    color:#9f9fa1;
+    filter: opacity(40%);
+    cursor: pointer;
+    padding: 0;
+    /* background-color: blue; */
+  }
+   /* -------------------------------------------------- */
+.UserProfileSide{
+  height:70px;
+  margin-left: auto;
+  width:200px;
+}
+
+
+/* add tolist */
+
+/* 
+.addToList{
+  position: relative;
+}
+.subAddToList{
+  display: none; 
+  padding-left: 16px;
+  margin-top: 20px;
+  margin-left: -20px;
+  position: absolute;
+  border-radius: 10px;
+  box-shadow: 0.6px 1.9px 13px 0 rgba(59, 59, 59, 0.16);
+  background-color: #ffffff;
+  cursor: pointer;
+  width:100%;
+  padding-top:10px;
+} */
+
+.subAddToList{
+  width: 300px;
+  max-height: 200px;
+  background-color: white;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  margin-left: -15px;
+  margin-top: 20px;
+  border-radius: 5px;
+  padding: 10px 0 10px 0;
+  /* padding-left: 20px; */
+  box-shadow: 1px 5px 5px 4px #dad8d8;
+}
+.subAddToList div{
+  padding-left: 15px;
+  line-height: 25px;
+}
+
+.subAddToList div:hover{
+  background-color: blue;
+  color: white;
+}
+.alldiv div{
+  height: 30px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 10px; 
+  position: relative;
+  margin: 5px;
+}
+
+.container1{
+  position: absolute;
+  cursor: pointer;
+  margin-top: 15px;
+
+}
+
+.container2{
+  /* display: none;  */
+  /* padding-left: 16px;
+  margin-top: 20px;
+  margin-left: -20px; */
+  position: absolute;
+  border-radius: 10px;
+  box-shadow: 0.6px 1.9px 13px 0 rgba(59, 59, 59, 0.16);
+  cursor: pointer;
+  width:100%;
+  height: 100px;
+  padding-top:30px;
+  background-color: rgb(46, 238, 46);
+  
+}
+
+.ViewModal{
+  width: 600px;
+  max-height: 200px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.ViewModalSubmit, .nata{
+  cursor: pointer;
+  display: block;
+  background-color: #2080ee;
+  font-size: 18px;
+  border-radius: 2px;
+  margin: 0;
+  color: white;
+}
+
+.viewResModal{
+  border-radius: 0px;
+  outline: none;
+  box-shadow:none ;
+  cursor: pointer;
+}
+
+.viewResModal:hover{
+  background-color: #87CEEB	;
+  width: 100%;
+  color: white;
+
+}
+
+.ViewModalInput{
+  width: 400px;
+}
+
+.DashbarMessage{
+  width: 280px;
+}
+
+.success{
+  color: red;
+}
+
+.CreditBuy{
+  height: 30px;
+  width: 100px;
+  background: #BB33FF;
+  display: block;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding-top: 2px;
+  color: white;
+}
+
+.CreditBuy:hover{
+  color:white;
+  background: #ff5533ce;
+}

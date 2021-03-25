@@ -1,0 +1,125 @@
+*** Starting uWSGI 2.0.19.1 (64bit) on [Mon Mar 22 14:52:26 2021] ***
+compiled with version: 7.5.0 on 22 March 2021 19:10:30
+os: Linux-5.4.0-42-generic #46~18.04.1-Ubuntu SMP Fri Jul 10 07:21:24 UTC 2020
+nodename: ubuntu
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 2
+current working directory: /home/yoboy/Project/djangoproject/million
+detected binary path: /home/yoboy/Project/djangoproject/my_env/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/yoboy/Project/djangoproject/million
+your processes number limit is 15447
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /home/yoboy/Project/djangoproject/million/million.sock fd 3
+Python version: 3.6.9 (default, Jan 26 2021, 15:33:00)  [GCC 8.4.0]
+PEP 405 virtualenv detected: /home/yoboy/Project/djangoproject/my_env
+Set PythonHome to /home/yoboy/Project/djangoproject/my_env
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55cec0a1b2a0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 801944 bytes (783 KB) for 10 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x55cec0a1b2a0 pid: 42381 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 42381)
+spawned uWSGI worker 1 (pid: 42384, cores: 1)
+spawned uWSGI worker 2 (pid: 42385, cores: 1)
+spawned uWSGI worker 3 (pid: 42386, cores: 1)
+spawned uWSGI worker 4 (pid: 42387, cores: 1)
+spawned uWSGI worker 5 (pid: 42388, cores: 1)
+spawned uWSGI worker 6 (pid: 42389, cores: 1)
+spawned uWSGI worker 7 (pid: 42390, cores: 1)
+spawned uWSGI worker 8 (pid: 42391, cores: 1)
+spawned uWSGI worker 9 (pid: 42392, cores: 1)
+spawned uWSGI worker 10 (pid: 42393, cores: 1)
+[pid: 42384|app: 0|req: 1/1] 127.0.0.1 () {42 vars in 707 bytes} [Mon Mar 22 21:52:32 2021] GET / => generated 8157 bytes in 244 msecs (HTTP/1.1 200) 7 headers in 349 bytes (1 switches on core 0)
+[pid: 42393|app: 0|req: 1/2] 127.0.0.1 () {42 vars in 707 bytes} [Mon Mar 22 21:52:34 2021] GET / => generated 8157 bytes in 265 msecs (HTTP/1.1 200) 7 headers in 349 bytes (1 switches on core 0)
+Mon Mar 22 21:53:34 2021 - uWSGI worker 10 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Mon Mar 22 21:53:34 2021 - uWSGI worker 6 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+*** Starting uWSGI 2.0.19.1 (64bit) on [Thu Mar 25 07:12:42 2021] ***
+compiled with version: 7.5.0 on 22 March 2021 19:10:30
+os: Linux-5.4.0-67-generic #75~18.04.1-Ubuntu SMP Tue Feb 23 19:17:50 UTC 2021
+nodename: ubuntu
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 2
+current working directory: /home/yoboy/Project/djangoproject/million
+detected binary path: /home/yoboy/Project/djangoproject/my_env/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/yoboy/Project/djangoproject/million
+your processes number limit is 15439
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /home/yoboy/Project/djangoproject/million/million.sock fd 3
+Python version: 3.6.9 (default, Jan 26 2021, 15:33:00)  [GCC 8.4.0]
+PEP 405 virtualenv detected: /home/yoboy/Project/djangoproject/my_env
+Set PythonHome to /home/yoboy/Project/djangoproject/my_env
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x5652477062a0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 801944 bytes (783 KB) for 10 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x5652477062a0 pid: 14411 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 14411)
+spawned uWSGI worker 1 (pid: 14414, cores: 1)
+spawned uWSGI worker 2 (pid: 14415, cores: 1)
+spawned uWSGI worker 3 (pid: 14416, cores: 1)
+spawned uWSGI worker 4 (pid: 14417, cores: 1)
+spawned uWSGI worker 5 (pid: 14418, cores: 1)
+spawned uWSGI worker 6 (pid: 14419, cores: 1)
+spawned uWSGI worker 7 (pid: 14420, cores: 1)
+spawned uWSGI worker 8 (pid: 14421, cores: 1)
+spawned uWSGI worker 9 (pid: 14422, cores: 1)
+spawned uWSGI worker 10 (pid: 14423, cores: 1)
+Thu Mar 25 14:15:52 2021 - uWSGI worker 10 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Thu Mar 25 14:15:52 2021 - uWSGI worker 3 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+*** Starting uWSGI 2.0.19.1 (64bit) on [Thu Mar 25 07:25:38 2021] ***
+compiled with version: 7.5.0 on 22 March 2021 19:10:30
+os: Linux-5.4.0-67-generic #75~18.04.1-Ubuntu SMP Tue Feb 23 19:17:50 UTC 2021
+nodename: ubuntu
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 2
+current working directory: /home/yoboy/Project/djangoproject/million
+detected binary path: /home/yoboy/Project/djangoproject/my_env/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/yoboy/Project/djangoproject/million
+your processes number limit is 15439
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /home/yoboy/Project/djangoproject/million/million.sock fd 3
+Python version: 3.6.9 (default, Jan 26 2021, 15:33:00)  [GCC 8.4.0]
+PEP 405 virtualenv detected: /home/yoboy/Project/djangoproject/my_env
+Set PythonHome to /home/yoboy/Project/djangoproject/my_env
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55725b4982a0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 801944 bytes (783 KB) for 10 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x55725b4982a0 pid: 14739 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 14739)
+spawned uWSGI worker 1 (pid: 14742, cores: 1)
+spawned uWSGI worker 2 (pid: 14743, cores: 1)
+spawned uWSGI worker 3 (pid: 14744, cores: 1)
+spawned uWSGI worker 4 (pid: 14745, cores: 1)
+spawned uWSGI worker 5 (pid: 14746, cores: 1)
+spawned uWSGI worker 6 (pid: 14747, cores: 1)
+spawned uWSGI worker 7 (pid: 14748, cores: 1)
+spawned uWSGI worker 8 (pid: 14749, cores: 1)
+spawned uWSGI worker 9 (pid: 14750, cores: 1)
+spawned uWSGI worker 10 (pid: 14751, cores: 1)
+[pid: 14750|app: 0|req: 1/1] 127.0.0.1 () {42 vars in 1006 bytes} [Thu Mar 25 14:25:45 2021] GET / => generated 7537 bytes in 291 msecs (HTTP/1.1 200) 7 headers in 349 bytes (1 switches on core 0)
+[pid: 14742|app: 0|req: 1/2] 127.0.0.1 () {44 vars in 1051 bytes} [Thu Mar 25 14:25:52 2021] GET /logout => generated 8157 bytes in 317 msecs (HTTP/1.1 200) 8 headers in 448 bytes (1 switches on core 0)

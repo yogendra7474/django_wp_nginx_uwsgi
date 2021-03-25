@@ -1,0 +1,160 @@
+{% include 'html/contacts.html' %}
+{% load static %}
+{% block trans %}
+<div class="row-fluid " style="height:73px;  background-color:rgb(148, 189, 110);">
+</div>
+<form action="Clinet_save" method="post">{% csrf_token %}
+  <div class="row-fluid dashboard-sorting1" style="height:74px;  ">
+    <div class="DashboardSelectAll">
+      <div class="DashboardSelectAllCheck">
+        <input type="checkbox" id="checkbox-all-ser">
+      </div>
+      <div class="DashboardSelectAllSelect" >
+        <a class=""  >Select All<img src="{% static 'image/down-arrow.svg' %}"  id="DashDropdown" alt="">
+          
+        </a>
+      </div>
+    </div>
+    <div class="DashboardSelectMenu" id="paf">
+      <div class="DashboardSelectMenuDrop">
+        <div class="DashboardSelCheck" ><input type="checkbox" id="checkbox-all-ser100" /> </div>
+        <div>Select 1 - 100 Contacts</div>
+      </div>
+      <div class="DashboardSelectMenuDrop">
+        <div class="DashboardSelCheck" ><input type="checkbox" id="checkbox-all-ser1000"/> </div>
+        <div>Select 1 - 1000 Contacts</div>
+      </div>
+      <div class="DashboardSelectMenuDrop">
+        <div class="DashboardSelCheck"><input type="checkbox" id="checkbox-all-serall" /> </div>
+        <div>Select all contacts</div>
+      </div>
+    </div>
+    <div class="SaveContact">
+      <a>Save contacts<img src="{% static 'image/down-arrow.svg' %}"  id="SaveContactArrow" alt="">
+      </a>
+    </div>
+    <div class="SaveContactMenu">
+      <div class="DashboardSelectMenuDrop">
+        Save contacts to list
+      </div>
+      <div class="DashboardSelectMenuDrop">
+        <button type="submit">Download slected contacts</button>
+      </div>
+    </div>
+    <div class="CountSearch">
+      {{filter_count}} Leads Found
+    </div>
+    <div class="ShowColumn">
+      <a>Show Column<img src="{% static 'image/down-arrow.svg' %}"  alt="">
+      </a>
+    </div>
+    <div class="ShowColumnMenu" id="paf">
+      <div class="ShowColumnMenuDrop">
+        <div class="DashboardSelCheck" >
+          <input type="checkbox" name="TableName" class="hidecol" id="col_2"/>
+        </div>
+        <div>Name</div>
+      </div>
+      <div class="ShowColumnMenuDrop">
+        <div class="DashboardSelCheck" >
+          <input type="checkbox" name="TableCompany" class="hidecol" id="col_3" /> </div>
+        <div>Company</div>
+      </div>
+  
+      <div class="ShowColumnMenuDrop">
+        <div class="DashboardSelCheck">
+          <input type="checkbox" name="TableEmail" class="hidecol" id="col_4" /> </div>
+        <div>Email & Phone</div>
+      </div>
+      <div class="ShowColumnMenuDrop">
+        <div class="DashboardSelCheck">
+          <input type="checkbox" name="TableAdd" class="hidecol" id="col_5" /> </div>
+        <div>Address</div>
+      </div>
+      <div class="ShowColumnMenuDrop">
+        <div class="DashboardSelCheck">
+          <input type="checkbox" name="TableConfidence" class="hidecol"  id="col_6"/> </div>
+        <div>Confidence</div>
+      </div>
+      
+    </div>
+    <div class="ShowRows">
+      <a >Show rows<img src="{% static 'image/down-arrow.svg' %}" height="20px" id="ShowRowsArrow" alt="">
+      <!-- <label for="rows">Show rows:</label>
+      <select id="rows" class="parag">
+        <option value="2">2</option>
+        <option value="4">4</option>
+        <option value="6">6</option>
+        <option value="8">10</option>
+      </select>-->
+    </div> 
+    <div class="ShowRowsMenu">
+      <div class="">
+        <a href="?page_show=2">2 </a>
+      </div>
+      <div class="">
+        <a href="?page_show=4">4 </a>
+      </div>
+      <div class="">
+        <a href="?page_show=6">6 </a>
+      </div>
+    </div>
+    <div class="Pagination">
+      <span class="current">
+        {{ filters.number }} of {{ filters.paginator.num_pages }}
+      </span>
+
+      <span class="step-links">
+        {% if filters.has_previous %}
+            <!-- <a href="?page=1">&laquo; first</a> -->
+            <a href="?page={{ filters.previous_page_number }}">previous</a>
+        {% endif %}
+
+        {% if filters.has_next %}
+            <a href="?page={{ filters.next_page_number }}">next</a>
+            <!-- <a href="?page={{ filters.paginator.num_pages }}">last &raquo;</a> -->
+        {% endif %}
+      </span>
+    </div>
+  </div>
+  <div>
+    <table class="SearchTable" id="SearchTableRes">
+      <tr class="TableHeading">
+        <th class="CBox "></th>
+        <th onclick="sortTable(0)" class="TableName ">Name</th>
+        <th onclick="sortTable(1)" class="TableCompany">Company</th>
+        <th onclick="sortTable(2)" class="TableEmail ">Email & Phone</th>
+        <th onclick="sortTable(3)" class="TableAdd ">Location</th>
+        <th onclick="sortTable(4)" class="TableConfidence ">Email Confidence</th>
+        <th class="TableView ">Name</th>
+      </tr>
+      {% for user in filters %}
+      <tr class="TableValue">
+        <td class="CBox"><input type="checkbox" name="checks[]"  id="clinet[]" value="{{user.id}}"></td>
+        <td class="TableName">
+          <div>{{ user.First_Name}} {{ user.Last_Name}}</div>
+          <div>{{ user.Primary_Department}}</div>
+        </td>
+        <td class="TableCompany">{{ user.Company}}</td>
+        <td class="TableEmail">
+          <div><i class="far fa-envelope"></i><span class="email">{{ user.Email_Encrypt}}</span></div>
+          <div><i class="fas fa-phone-alt"></i><span class="phone">{{ user.Mobile_Number_Encrypt}}</span></div>
+        </td>
+        <td class="TableAdd">
+          <div>{{ user.State}}</div>
+          <div>{{ user.Country }}</div>
+        </td>
+        <td class="TableConfidence"> {{ user.Email_Confidence}}</td>
+        <td class="TableView ">
+          <div class="emaildiv">
+            <a class="update" id="{{ user.id }}">View contacts</a>
+          </div>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+  </div>
+</form>
+
+{% endblock trans %}

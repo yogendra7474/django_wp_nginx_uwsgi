@@ -1,0 +1,48 @@
+<div class="row-fluid SearchResult" style="height:46px; ">
+    <div class="SearchResultAreaBox SRB">
+    </div>
+    <div class="SearchResultName SRN">
+      Name
+    </div>
+    <div class="SearchResultCompany SRC">
+      Company
+    </div>
+    <div class="SearchResultLocation SRL">
+      Location
+    </div>
+    <div class="SearchResultEmail SRE">
+      Email & Phone
+    </div>
+    <div class="SearchResultConfidence SRCO">
+      Confidence
+    </div>
+    <div class="SearchResultName SRX">
+      Name
+    </div>
+  </div>
+  <div class="overflow-auto SearchArea" style="height:400px; background-color: hotpink; ">
+    {% for user in filters %}
+    <div class="row-fluid SearchResultArea" style="height:46px; ">
+      <div class="SearchResultAreaBox SRB">
+        <input type="checkbox" name="checks[]"  id="clinet[]" value="{{user.id}}">
+      </div>
+      <div class="SearchResultAreaName SRN">
+        {{ user.First_Name}}
+      </div>
+      <div class="SearchResultAreaCompnay SRC">
+        {{ user.Company}}
+      </div>
+      <div class="SearchResultAreaLocation SRL">
+        {{ user.Email}}
+      </div>
+      <div class="SearchResultAreaEmail SRE">
+        {{ user.Address}}
+      </div>
+      <div class="SearchResultAreaConfidence SRCO">
+        {{ user.Email_Confidence}}
+      </div>
+      <div class="SearchResultAreaName SRX">
+        Name
+      </div>
+    </div>
+    {% endfor %}

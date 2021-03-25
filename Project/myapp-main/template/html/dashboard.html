@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+{% load static %}
+{% load mytemplatetags %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+    <script src=dashboard.js type="text/javascript"></script>
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.css' %}">
+    <script src="{% static 'jquery/dashboard.js' %}" type="text/javascript"></script>
+    <title>Pipegenious</title>
+</head>
+<body>
+  <div class="container-fluid cf" style=" height:70px;">
+    <div class="" style=" height:70px; width:70px; background-color:#193ac9"></div>
+    <div class="DashbardLeftMenu" >
+      <div class="DashbardDas" >
+        <a href="{% url 'dashboard' %}"> Dashboard</a>
+      </div>
+      <div class="DashbardCon" >
+        <a href="{% url 'contact' %}"> Contacts</a>
+      </div>
+      <div class="DashbardCom" >
+        <a href="{% url 'company' %}"> Companies</a>
+      </div>
+      <div class="DashbardMylist dropdown">
+        <p class="dropdown-toggle" data-toggle="dropdown">My List</p>
+        <div class="dropdown-menu UserSaved" aria-labelledby="dropdownMenuButton">
+          {% for user in filter2 %}
+          <a class="dropdown-item " href="#">{{user.SaveTitle}}</a>
+          {% endfor %}
+        </div>
+      </div>
+      <!-- {% if request.user_is_verified %}
+      <p class="NotVerified" style="color: red;"> tera</p>
+      {% else %}
+      <p class="NotVerified" style="color: red;"> verify account</p>
+      {% endif %} -->
+    </div>
+    <div class="DashbardLeftMenu dropdown UserProfileSide">
+      <div class="Notificationbell">
+        <a class="" href="#">
+          <img src="{% static 'image/notification.png ' %}" height="23px" width="23px" alt="">
+        </a>
+      </div>
+      <div class="dropdown show">
+        <div class="Usersettings" data-toggle="dropdown">
+          <a class="nav-link" href="#">John Smith<img src="{% static 'image/down-arrow.svg' %}"height="12px" width="20px" alt="">
+          </a>
+        </div>
+        <div class="dropdown-menu UsersettingsDrop">
+          <a class="dropdown-item" href="#">My Settings</a>
+          <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class=" wrap">
+    <div class="SearchHead" >
+      <form action="searchany" method="post">{% csrf_token %}
+        <div class="CommonSearch" >
+          <div class="CommonSearchFa" >
+            <input type="image" name="submit_blue" alt="blue" src="{% static 'image/magnifying-glass.svg' %}">
+          </div>
+          <div class="CommonSearchInput">
+              <input type="text"  placeholder="Search any company or contacts" name="fn" id="SearchBox" class="search-header search-box" value="">
+          </div>
+        </div>
+      </form>
+    </div>
+      
+    <div style="height:400px; display: flex;">
+      <div class="DasImageWel" style="height:400px; flex:4;">
+        <div>
+          <img src="{% static 'image/das-mor.png' %}" height="105x" width="147px" alt="">
+          <p style="margin:0;">Good Morning</p>
+          <p style="margin:0;">{{UserName1}}!</p>
+          
+
+        </div>
+      </div>
+      <div class="DasLeadArea">
+        <p class="PLeadSum">Leads Summary</p>
+        <div class="DasLeadAreaList" style="display: flex;">
+          <div class="ContactDownload">
+            <p>Contact Download</p>
+            <p>14,424</p>
+            <p><a href="">View all &rarr;</a></p>
+          </div>
+          <div class="PhoneDownload" >
+            <p>Phone numbers</p>
+            <p>14,424</p>
+            <p><a href="">View all &rarr;</a></p>
+          </div>
+          <div class="EmailDownload" >
+            <p>Email address</p>
+            <p>14,424</p>
+            <p><a href="">View all &rarr;</a></p>
+          </div>
+        
+          <div class="ListCreated" >
+            <p>Companies added</p>
+            <p>14,424</p>
+            <p><a href="">View all &rarr;</a></p>
+          </div>
+        </div>
+    </div>
+  </div> 
+</body> 
+</html>
+

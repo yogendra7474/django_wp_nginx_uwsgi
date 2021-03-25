@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+    <title>Pipegenious</title>
+</head>
+<body>
+    <nav class="navbar sticky-top navbar-default navbar-expand-lg navbar-light bg-light min-height: 50px ">
+        <a class="navbar-brand" href="#">
+          <img src="{% static "images/pipegenius.png" %}" width="40" alt="">
+        </a>
+        <a class="navbar-brand text-primary" href="#">Pipegenius</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link pricing" href="#">
+                        <h5>Solutions</h5></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link pricing" href="#">
+                        <h5>Pricing</h5>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="#">
+                        <h5>About Us</h5>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <h5>Blog</h5>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="" data-toggle="modal" data-target="#exampleModal">
+                        <h5>Sign In</h5>
+                    </a>
+                </li>
+                <li class="nav-item reqdemo">
+                    <a class="nav-link text-light" href="#" data-toggle="modal"  data-target="#exampleModal2">
+                        <h5>Request Demo</h5>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+    </nav>
+    <div class="container-fluid  cbox">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="col-lg-8 text-cente">
+                <h1 class="text-center text-white">More Leads. More sales. More Revenue.</h1>
+            </div>
+        </div>
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="col-lg-6">
+                <h4 class="text-center text-white">ACCESS TO 100M+ CONTACTS ACROSS INDUSTRIES.</h4>
+            </div>
+        </div>
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+              <form action="guest" method="post">
+                {% csrf_token %}  
+                <div class="home-search ">
+                    <div class="search-col1 "><input type="email" name="email" placeholder="Enter Business Email" required></div>
+                    <div class="search-col2">
+                      <button type="submit " class="btn-primary">
+                        <h5>TRY FREE</h5>
+                      </button>
+                    </div>
+                </div>
+              </form>
+            </div>
+        </div>
+        
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <img src="{% static "images/Subtract1.png" %}" class="rounded mx-auto d-block" width="150px" alt="...">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body col-md">
+                <form action="signin" method="post">{% csrf_token %}
+                  <div class="form-group row">
+                    <div class="col-md">
+                      <input type="email" name="email" class="form-control" id="inputEmail3" placeholder="Email" required>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md">
+                      <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password" required>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                      <div class="col-md">
+                        <a class="mr-auto" href="{% url 'forgot' %}">Forgot your password?</a>
+                      </div>
+                    </div>
+                  <div class="form-group row">
+                    <div class="col-md">
+                      <button type="submit" class="btn btn-success col-md-12">Sign in</button>
+                    </div>
+                  </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <p class="text-secondary">Not a member? <a style="color:blue" href="{% url 'SignupPage' %}">Signup</a> here</p>
+           </div>
+          </div>
+        </div> 
+    </div>
+
+
+    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel2">New message</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <form action="RequestDemo" method="post">
+                  {% csrf_token %}
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <input type="text" name="First_Name" class="form-control" id="firstname" placeholder="First Name" required>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <input type="text" name="Last_Name" class="form-control" id="lastname" placeholder="Last Name" required>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <input type="email" name="Email" class="form-control" id="businessemail" placeholder="Business Email" required>
+                    </div>
+                    <div class="form-group">
+                    <div class="form-group">
+                        <input type="text" name="Phone_Number" class="form-control" id="phonenumber" placeholder="Phone Number" required>
+                        </div>
+                        <div class="form-group">
+                    </div >
+                    <button type="submit" class="btn btn-success col-md-12">Request Demo</button>
+                </form>
+            </div>
+        
+        </div>
+    </div>
+</body>
+</html>

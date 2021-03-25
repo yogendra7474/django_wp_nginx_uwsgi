@@ -1,0 +1,49 @@
+{% extends 'html/base.html' %}
+{% load search_extra %}
+{% block content %}
+{% load static %}
+<div >
+    <div class ="tag" id ="tango">
+        <button type="submit" class="search_sbt_btn" id="srchbtn" >Save</button>
+    </div>
+    <div>
+        <span>
+            {% if Clients.has_previous %}
+                <a href="{% my_url Clients.previous_page_number 'page' request.GET.urlencode %}">Previous Page</a>
+            {% endif %}
+            <span>{{Clients.number }} of {{Clients.paginator.num_pages}}</span>
+            {% if Clients.has_next %}
+                <a href="{% my_url Clients.next_page_number 'page' request.GET.urlencode %}">Next Page</a>
+            {% endif %}
+        </span>
+    </div>
+</div>
+
+<table>
+    <thead>
+        <th>Select total: {{count_id}}</th>
+        <th>Customer Name</th>
+        <th>Email & Phone Number</th>
+        <th>Email & Phone Number</th>
+        <th>Select</th>
+    </thead>
+    <thbody>
+<!--        {% csrf_token %}-->
+        {% for user in Clients %}
+            <tr>
+                <td><input type="checkbox" name="Clients_id"  id="clinet[]" value="{{user.Email}}"></td>
+                <td>{{ user.First_Name}} {{ user.Last_Name}}</td>
+                <td>{{ user.Company}}
+                    {{ user.City}},
+                    {{ user.State}},
+                    {{ user.Country}}
+                </td>
+                <td>{{ user.Email}}</td>
+                <td>{{ user.Email_Confidence}}</td>
+                {% endfor %}
+            </tr>
+    </thbody>
+
+</table>
+
+{% endblock %}

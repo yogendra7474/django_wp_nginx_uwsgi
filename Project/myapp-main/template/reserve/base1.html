@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+{% load static %}
+{% load search_extra %}
+{% load i18n %}
+
+<html lang="en">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+    <link rel ="stylesheet" type="text/css" href="{% static '/css/search.css' %}">
+    <script src="{% static '/js/search.js' %}" type="text/javascript"></script>
+    <title>Pipegenious</title>
+</head>
+
+<body class='single-page'>
+    <nav class="navbar sticky-top navbar-default navbar-expand-lg navbar-light bg-light height:40px ">
+        <a class="navbar-brand text-primary" href="#">Pipegenius</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+    <main>
+        <div class="filter-search-dashboard"  id="filtersearch1">
+            <div>
+                <form action="Client_top1" method="post" >
+                    {{ myFilter.form.as_p }}
+                    {% csrf_token %}
+
+
+                         <!--<input type="search" name="search" placeholder="email"  id="email" class="search-header search-box" value=""><br>  -->
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class ="search-result-inside">
+            {% block content %}
+            {% endblock %}
+        </div>
+
+    </main>
+
+
+</body>
+</html>

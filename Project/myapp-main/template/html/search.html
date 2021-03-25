@@ -1,0 +1,58 @@
+{% extends 'html/base.html' %}
+{% load static %}
+{% load search_extra %}
+{% block content %}
+<form action="Clinet_save" method="post" >
+    {% csrf_token %}
+    <div class="search-result-header">
+        <div>
+            <button type="submit">Get Contacts</button>
+
+        </div>
+        <div>
+            <span>
+            {% if Clients.has_previous %}
+                <a href="{% my_url Clients.previous_page_number 'page' request.GET.urlencode %}">Previous Page</a>
+            {% endif %}
+            <span>{{Clients.number }} of {{Clients.paginator.num_pages}}</span>
+            {% if Clients.has_next %}
+                <a href="{% my_url Clients.next_page_number 'page' request.GET.urlencode %}">Next Page</a>
+            {% endif %}
+            </span>
+        </div>
+    </div>
+    <div class="search-result-header1">
+        <table style="width:100%, text-align:center , position: relative">
+            <tr style="position: sticky" >
+                <th style="position: sticky"></th>
+                <th style="position: sticky" >Name</th>
+                <th style="position: sticky">Company</th>
+                <th style="position: sticky">Email</th>
+                <th style="position: sticky">Company_Number</th>
+                <th style="position: sticky">Delverabilty</th>
+            </tr>
+            {% for user in Clients %}
+            <tr>
+              <td style="width:20px"><input type="checkbox" name="checks[]"  id="clinet[]" value="{{user.Email}}"></td>
+              <td style="width:100px">{{ user.First_Name}} {{ user.Last_Name}}</td>
+              <td style="width:100px">{{ user.Company}}, {{ user.City}},
+                  {{ user.State}}</td>
+              <td style="width:100px">{{ user.Email}}</td>
+                <td style="width:100px">{{ user.Company_Number}}</td>
+              <td style="width:100px" >{{ user.Email_Confidence}}</td>
+            </tr>
+            {% endfor %}
+          </table>
+
+    </div>
+</form>
+<style>
+  table {
+            width: 100%;
+        }
+   tbody td, thead th {
+            width: 5%;
+
+        }
+</style>
+{% endblock %}

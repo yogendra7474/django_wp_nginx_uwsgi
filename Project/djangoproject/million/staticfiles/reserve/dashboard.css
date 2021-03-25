@@ -1,0 +1,258 @@
+* {
+  box-sizing: border-box;
+  margin:0;
+  padding: 0;
+}
+.navbar-brand{
+  font-size: 25px;
+  color:#1fae66;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+.navbar{
+  background-color: rgba(0, 0, 0, 0.808);
+}
+
+.navbar-brand img{
+  padding-right: 10px;
+}
+.lead-btn{
+  background: #0690D5 ;
+}
+.accounts-btn{
+  background:#ff5833d2  ;
+}
+
+.lead-btn:hover, .accounts-btn:hover {
+  background-color: black;
+}
+
+
+.get-contacts p{
+  color:white;
+}
+
+
+.row{
+  display:flex;
+}
+
+.sidebard, .search-result{
+  flex:1;
+}
+.NavFormInput{
+  background: rgb(241, 241, 245);
+  padding-left: 10px;
+  width: 300px;
+  border-radius: 20px 0 0 20px;
+  border: 0px;
+  height: 35px;
+  color:black;
+}
+
+.NavFormSearch{
+  position: relative;
+  border-radius:0 20px 20px 0;
+  outline-color: none;
+  box-shadow:none;
+  border: 0px;
+  background-color:green;
+  left: -3px;
+  font-size: 18px bold;
+  height: 35px;
+  width: 50px;
+  color: white;
+}
+
+.form-inline input:focus {
+  border: 0px;  
+  outline: none;
+}
+.NavFormSearch:hover{
+  background: rgb(255, 69, 0);
+}
+
+.navbar-nav i.fas {
+  display: inline-block;
+  border-radius: 60px;
+  box-shadow: 0px 0px 2px rgb(216, 210, 210);
+  padding: 0.5em 0.6em;
+  color:rgb(216, 210, 210);
+}
+
+.navbar-nav i.fas:hover{
+  color: #1fae66;
+  background: rgb(216, 210, 210);
+}
+
+.dashboard-sizing i.fas {
+  display: inline-block;
+  height: 20px;
+  font-size: 20px;
+  line-height: 0px;
+  text-align: center;
+  vertical-align: bottom;
+  color: rgba(0, 0, 0, 0.671);
+} 
+.dashboard-arrow-area{
+  background-color:rgb(240, 239, 239);
+  height: 25px;
+  
+}
+.dashboard-arrow-area div{
+  height: 25px;
+  border-style: outset;
+  border-width: 1px;
+  float: right;
+}
+
+.main{
+  display: flex;
+}
+.sidebar{
+  flex:3;
+}
+.search-bar{
+  flex:9;
+}
+.check-input{
+  height: 20px;
+  width: 20px;
+}
+.check-input-label{
+  display: inline-block;
+  font-size: 18px;
+  text-align: center;
+  vertical-align: bottom;
+
+}
+
+
+ .check-input-cl i.fas {
+  display: inline-block;
+  font-size: 20px;
+  /* padding:5px;
+  line-height: -3px;
+  text-align: center; 
+  vertical-align: bottom; */
+  color: rgba(0, 0, 0, 0.671);
+}  
+
+.checkbox-all{
+  height: 40px;
+  width: 80px;
+  border-radius: 2px;
+}
+
+.get-contacts{
+  background: #e44a12;
+  height: 40px;
+  border-radius: 2px;
+}
+
+/****  ********************************************floating-Lable style start ****/
+
+.floating-form {
+  width:320px;
+}
+
+/****  floating-Lable style start ****/
+.floating-label { 
+  position:relative; 
+  margin-bottom:20px; 
+}
+.floating-input{
+  font-size:16px ;
+  padding:4px 4px;
+  display:block;
+  width:100%;
+  height:100%;
+  background-color: #1fae66;
+  border:none;
+  border-bottom:1px solid #000000;
+}
+
+.floating-input:focus{
+  outline:none;
+  border-bottom:2px solid black;
+  background-color: transparent;
+}
+
+.floating-label-all{
+  color:black; 
+  font-size:16px bold;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:5px;
+  top:5px;
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all; 
+}
+
+.floating-input:focus ~ .floating-label-all, .floating-input:not(:placeholder-shown) ~ .floating-label-all {
+  top:-10px;
+  font-size:14px;
+  color:rgb(0, 0, 0);
+}
+
+
+/* highlighter */
+.highlight {
+  position:absolute;
+  height:50%; 
+  width:100%; 
+  top:15%; 
+  left:0;
+  pointer-events:none;
+  opacity:0.5;
+}
+
+/* active state */
+.floating-input:focus ~ .highlight{
+  -webkit-animation:inputHighlighter 0.3s ease;
+  -moz-animation:inputHighlighter 0.3s ease;
+  animation:inputHighlighter 0.3s ease;
+}
+
+.floating-label i.fas {
+  font-size: 15px;
+  position: absolute;
+  left:285px;
+  top: 4px;
+  color:white;
+} 
+
+
+.search-result-title{
+  display: flex;
+  height: 40px;
+  margin-left: 10px;;
+}
+
+/* flex:0.1; width:50px; */
+
+.srcheck{ width:5%; }
+.srname{ width:15%; }
+.srcompany{width:20%;  }
+.srep{ width:20%;  }
+.srcd{ width:20%;  }
+.srdel{ width:20%;  }
+
+.SearchResult{
+  margin-left: 10px;;
+  display: flex;
+  height:70px;
+  justify-content: space-around;
+}
+
+.srcheck1{ width:5%;}
+.srname1{width:15%; }
+.srcompany1{width:20%;  }
+.srep1{width:20%; word-wrap:break-word}
+.srcd1{ width:20%; }
+.srdel1{width:20%; }

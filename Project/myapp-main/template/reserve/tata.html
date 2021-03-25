@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+    <title>Pipegenious</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <form action="pix" method ="post">{% csrf_token %}
+                <!-- <div class="form-group">
+                  <label for="exampleInputEmail1">Level</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Level" name="level" value="">
+                </div> -->
+                <div class="form-group">
+                  <label for="exampleInputPassword1">company</label>
+                  <input type="text" class="form-control" name="fn" id="exampleInputPassword1" placeholder="name" value="">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">company</label>
+                    <input type="text" class="form-control" name="dept" id="exampleInputPassword1" placeholder="primary dept" value="">
+                  </div>
+                <div class="form-group form-check">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1" name="checks[]" value="VP-Level" />
+                  <label class="form-check-label" for="exampleCheck1">VP</label>
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1" name="checks[]" value="Manager-Level" />
+                    <label class="form-check-label" for="exampleCheck1">Manager-Level</label>
+                  </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+        </div>
+        <div class="row">
+            <p>level{{pd1}}</p><br>
+            <p>fn{{pd2}}</p><br>
+            <p>pd{{pd3}}</p><br>
+        </div>
+        <div class="row">
+            <form action="Clinet_save" method="post" >
+                {% csrf_token %}
+                <div class="search-result-header1">
+                    <table style="width:100%, text-align:center , position: relative">
+                        <tr style="position: sticky" >
+                            <th style="position: sticky">Email</th>
+                            <th style="position: sticky">Company_Number</th>
+                            <th style="position: sticky">Delverabilty</th>
+                        </tr>
+                        {% for user in filters %}
+                        <tr>
+                          <td style="width:100px">{{ user.Email}}</td>
+                            <td style="width:100px">{{ user.Company_Number}}</td>
+                          <td style="width:100px" >{{ user.Email_Confidence}}</td>
+                        </tr>
+                        {% endfor %}
+                      </table>
+                </div>
+            </form>
+    
+        </div>
+    </div>
+</body>
+</html>
